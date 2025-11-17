@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_background">#F5F5F5</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_dark">#111111</color>
+    <color name="text_primary">#1C1C1C</color>
+    <color name="text_secondary">#7D7D7D</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="accent_positive">#2ECC71</color>
+    <color name="accent_negative">#E74C3C</color>
+    <color name="button_disabled">#CFCFCF</color>
+    <color name="button_secondary_bg">#F4F4F4</color>
+</resources>

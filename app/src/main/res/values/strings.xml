@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">SmartCash</string>
+
+    <!-- Login -->
+    <string name="login_title">Control de Gastos</string>
+    <string name="login_subtitle">Iniciar sesión</string>
+    <string name="username_hint">Usuario</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="button_login">Iniciar</string>
+    <string name="invalid_credentials">Usuario o contraseña inválidos</string>
+
+    <!-- Dashboard -->
+    <string name="welcome">Bienvenido</string>
+    <string name="total_balance">Saldo Total</string>
+    <string name="total_income">Ingreso Total</string>
+    <string name="total_expense">Gasto Total</string>
+    <string name="action_add">Añadir</string>
+    <string name="action_history">Historial</string>
+    <string name="action_statistics">Estadística</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_logout">Cerrar sesión</string>
+    <string name="search_hint">Buscar</string>
+    <string name="delete_entry">Eliminar movimiento</string>
+    <string name="btn_save">Añadir</string>
+    <string name="title_add_income">Añadir ingreso</string>
+    <string name="title_add_expense">Añadir gasto</string>
+    <string name="title_income_history">Historial de ingresos</string>
+    <string name="title_expense_history">Historial de gastos</string>
+
+    <!-- Forms -->
+    <string name="label_category">Categoría</string>
+    <string name="label_amount">Monto</string>
+    <string name="label_description">Descripción</string>
+    <string name="label_date">Fecha</string>
+    <string name="error_required_fields">Complete todos los campos.</string>
+    <string name="error_amount_positive">Ingrese un monto mayor a 0.</string>
+    <string name="success_income_added">Ingreso guardado</string>
+    <string name="success_expense_added">Gasto guardado</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ajustes</string>
+    <string name="logout_message">La sesión finalizará y se borrarán los datos temporales.</string>
+
+    <!-- Arrays -->
+    <string-array name="income_categories">
+        <item>Salario</item>
+        <item>Negocio</item>
+        <item>Freelance</item>
+        <item>Regalías</item>
+        <item>Otro</item>
+    </string-array>
+
+    <string-array name="expense_categories">
+        <item>Hogar</item>
+        <item>Comida</item>
+        <item>Transporte</item>
+        <item>Cuentas</item>
+        <item>Educación</item>
+        <item>Ocio</item>
+        <item>Otro</item>
+    </string-array>
+</resources>
