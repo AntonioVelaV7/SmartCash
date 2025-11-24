@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import android.widget.ArrayAdapter
+import android.widget.Filter
 import com.example.smartcash.R
 import com.example.smartcash.databinding.FragmentDashboardBinding
 import com.example.smartcash.DrawerHost
@@ -48,6 +50,7 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setupButtons() = with(binding) {
+        setupFilters()
         btnAddIncome.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_addIncomeFragment)
         }
@@ -68,6 +71,46 @@ class DashboardFragment : Fragment() {
         }
         btnHome.isEnabled = false
         btnHome.alpha = 0.4f
+    }
+
+    private fun setupFilters() = with(binding) {
+        val years = resources.getStringArray(R.array.filter_years)
+        actYear.setAdapter(alwaysFullAdapter(years))
+        actYear.setText(years.firstOrNull() ?: "", false)
+        actYear.setOnClickListener { actYear.showDropDown() }
+        actYear.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) actYear.showDropDown()
+        }
+
+        val months = resources.getStringArray(R.array.filter_months)
+        actMonth.setAdapter(alwaysFullAdapter(months))
+        actMonth.setText(months.firstOrNull() ?: "", false)
+        actMonth.setOnClickListener { actMonth.showDropDown() }
+        actMonth.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) actMonth.showDropDown()
+        }
+    }
+
+    private fun alwaysFullAdapter(items: Array<String>): ArrayAdapter<String> {
+        return object : ArrayAdapter<String>(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            items
+        ) {
+            override fun getFilter(): Filter {
+                return object : Filter() {
+                    override fun performFiltering(constraint: CharSequence?): FilterResults {
+                        return FilterResults().apply {
+                            values = items
+                            count = items.size
+                        }
+                    }
+                    override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                        notifyDataSetChanged()
+                    }
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

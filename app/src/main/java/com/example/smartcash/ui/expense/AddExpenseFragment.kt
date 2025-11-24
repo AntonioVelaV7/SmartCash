@@ -67,7 +67,7 @@ class AddExpenseFragment : Fragment() {
         btnGoToHistory.setOnClickListener {
             findNavController().navigate(R.id.action_addExpenseFragment_to_expenseHistoryFragment)
         }
-        btnHome.setOnClickListener { findNavController().navigateHome() }
+        homeFooter.btnHome.setOnClickListener { findNavController().navigateHome() }
 
         etDate.setOnClickListener { showDatePicker() }
         tilDate.setEndIconOnClickListener { showDatePicker() }
@@ -91,7 +91,6 @@ class AddExpenseFragment : Fragment() {
 
     private fun saveExpense() = with(binding) {
         val category = actCategory.text?.toString().orEmpty()
-        val description = etDescription.text?.toString().orEmpty()
         val amount = etAmount.text?.toString()?.toDoubleOrNull()
         val date = selectedDate
 
@@ -109,7 +108,7 @@ class AddExpenseFragment : Fragment() {
                         category = category,
                         amount = amount,
                         date = date,
-                        description = description
+                        description = ""
                     )
                 )
                 Snackbar.make(root, R.string.success_expense_added, Snackbar.LENGTH_SHORT).show()
@@ -120,7 +119,6 @@ class AddExpenseFragment : Fragment() {
 
     private fun clearForm() = with(binding) {
         actCategory.text?.clear()
-        etDescription.text?.clear()
         etAmount.text?.clear()
         etDate.setText("")
         selectedDate = null

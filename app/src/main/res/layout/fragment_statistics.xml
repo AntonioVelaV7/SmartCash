@@ -50,16 +50,9 @@
         android:gravity="center"
         android:orientation="vertical" />
 
-    <ImageButton
-        android:id="@+id/btnHome"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_circle_light"
-        android:contentDescription="@string/welcome"
-        android:padding="8dp"
-        android:src="@drawable/ic_home" />
+    <include
+        android:id="@+id/homeFooter"
+        layout="@layout/include_home_footer" />
 
 </LinearLayout>
 

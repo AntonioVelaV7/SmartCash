@@ -19,6 +19,8 @@
     <string name="action_statistics">Estadística</string>
     <string name="action_settings">Ajustes</string>
     <string name="action_logout">Cerrar sesión</string>
+    <string name="filter_year_label">Año</string>
+    <string name="filter_month_label">Mes</string>
     <string name="search_hint">Buscar</string>
     <string name="delete_entry">Eliminar movimiento</string>
     <string name="btn_save">Añadir</string>

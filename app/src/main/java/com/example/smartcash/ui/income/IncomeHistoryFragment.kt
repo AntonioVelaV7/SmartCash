@@ -48,7 +48,7 @@ class IncomeHistoryFragment : Fragment() {
 
     private fun setupListeners() = with(binding) {
         btnBack.setOnClickListener { findNavController().navigateUp() }
-        btnHome.setOnClickListener { findNavController().navigateHome() }
+        homeFooter.btnHome.setOnClickListener { findNavController().navigateHome() }
         etSearch.doAfterTextChanged { filterList(it?.toString().orEmpty()) }
     }
 

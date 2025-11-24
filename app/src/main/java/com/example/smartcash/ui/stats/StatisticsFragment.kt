@@ -63,7 +63,7 @@ class StatisticsFragment : Fragment() {
 
     private fun setupButtons() = with(binding) {
         btnBack.setOnClickListener { findNavController().navigateUp() }
-        btnHome.setOnClickListener { findNavController().navigateHome() }
+        homeFooter.btnHome.setOnClickListener { findNavController().navigateHome() }
     }
 
     private fun observeData() {

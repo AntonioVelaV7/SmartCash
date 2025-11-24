@@ -49,34 +49,64 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:id="@+id/dividerFilters"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="#111111"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header" />
+
         <LinearLayout
             android:id="@+id/filterContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header">
+            app:layout_constraintTop_toBottomOf="@id/dividerFilters">
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spYear"
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/actYear"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="12dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_spinner"
-                android:entries="@array/filter_years" />
+                android:background="@drawable/bg_filter_chip"
+                android:drawableStart="@drawable/ic_filter_year"
+                android:drawableEnd="@drawable/ic_chevron_down"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:hint="@string/filter_year_label"
+                android:importantForAutofill="no"
+                android:inputType="none"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spMonth"
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/actMonth"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_spinner"
-                android:entries="@array/filter_months" />
+                android:background="@drawable/bg_filter_chip"
+                android:drawableStart="@drawable/ic_filter_month"
+                android:drawableEnd="@drawable/ic_chevron_down"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:hint="@string/filter_month_label"
+                android:importantForAutofill="no"
+                android:inputType="none"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView

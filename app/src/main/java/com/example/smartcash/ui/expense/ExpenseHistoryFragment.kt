@@ -52,7 +52,7 @@ class ExpenseHistoryFragment : Fragment() {
         btnStatistics.setOnClickListener {
             findNavController().navigate(R.id.action_expenseHistoryFragment_to_statisticsFragment)
         }
-        btnHome.setOnClickListener { findNavController().navigateHome() }
+        homeFooter.btnHome.setOnClickListener { findNavController().navigateHome() }
         etSearch.doAfterTextChanged { filterList(it?.toString().orEmpty()) }
     }
 

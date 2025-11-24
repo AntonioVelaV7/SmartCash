@@ -46,10 +46,10 @@ class AddIncomeFragment : Fragment() {
 
     private fun setupCategoryInput() = with(binding) {
         val options = listOf(
-            CategoryOption("Hogar", R.drawable.ic_category_home),
-            CategoryOption("Comida", R.drawable.ic_category_food),
-            CategoryOption("Transporte", R.drawable.ic_category_bus),
-            CategoryOption("Cuentas", R.drawable.ic_category_bills)
+            CategoryOption("Salario", R.drawable.ic_category_salary),
+            CategoryOption("Negocio", R.drawable.ic_category_business),
+            CategoryOption("Inversiones", R.drawable.ic_category_investment),
+            CategoryOption("Extras / Bonos", R.drawable.ic_category_bonus)
         )
         val adapter = CategoryDropdownAdapter(requireContext(), options)
         actCategory.setAdapter(adapter)
@@ -68,7 +68,7 @@ class AddIncomeFragment : Fragment() {
         btnGoToHistory.setOnClickListener {
             findNavController().navigate(R.id.action_addIncomeFragment_to_incomeHistoryFragment)
         }
-        btnHome.setOnClickListener { findNavController().navigateHome() }
+        homeFooter.btnHome.setOnClickListener { findNavController().navigateHome() }
         etDate.setOnClickListener { showDatePicker() }
         tilDate.setEndIconOnClickListener { showDatePicker() }
 
@@ -100,7 +100,6 @@ class AddIncomeFragment : Fragment() {
         val category = actCategory.text?.toString().orEmpty()
         val amount = etAmount.text?.toString()?.toDoubleOrNull()
         val date = selectedDate
-        val description = etDescription.text?.toString().orEmpty()
 
         when {
             category.isBlank() || amount == null || date == null -> {
@@ -116,7 +115,7 @@ class AddIncomeFragment : Fragment() {
                         category = category,
                         amount = amount,
                         date = date,
-                        description = description
+                        description = ""
                     )
                 )
                 Snackbar.make(root, R.string.success_income_added, Snackbar.LENGTH_SHORT).show()
@@ -128,7 +127,6 @@ class AddIncomeFragment : Fragment() {
     private fun clearForm() = with(binding) {
         actCategory.text?.clear()
         etAmount.text?.clear()
-        etDescription.text?.clear()
         etDate.setText("")
         selectedDate = null
     }
