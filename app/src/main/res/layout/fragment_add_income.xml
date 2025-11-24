@@ -43,59 +43,67 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGoToHistory"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:backgroundTint="@color/button_secondary_bg"
-                android:text="@string/action_history"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary"
-                app:cornerRadius="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/divider"
-                app:strokeWidth="1dp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilCategory"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <View
+                android:id="@+id/dividerHeader"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp"
-                app:hintTextColor="@color/text_secondary"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/text_primary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnBack">
+                app:layout_constraintTop_toBottomOf="@id/tvScreenTitle" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/actCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/label_category"
-                    android:inputType="none"
-                    tools:text="Salario" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/actCategory"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_filter_chip"
+                android:drawableEnd="@drawable/ic_chevron_down"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:hint="@string/label_category"
+                android:inputType="none"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnGoToHistory"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerHeader" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoToHistory"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:backgroundTint="@color/surface_dark"
+                android:text="@string/action_history"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:cornerRadius="30dp"
+                app:icon="@drawable/ic_button_history"
+                app:iconGravity="textEnd"
+                app:iconPadding="8dp"
+                app:iconTint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/actCategory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/actCategory" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilAmount"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:boxCornerRadiusBottomEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp"
-                app:hintTextColor="@color/text_secondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tilCategory">
+                app:layout_constraintTop_toBottomOf="@id/actCategory">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etAmount"
