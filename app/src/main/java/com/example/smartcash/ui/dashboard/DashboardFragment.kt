@@ -91,27 +91,20 @@ class DashboardFragment : Fragment() {
         }
     }
 
-    private fun alwaysFullAdapter(items: Array<String>): ArrayAdapter<String> {
-        return object : ArrayAdapter<String>(
-            requireContext(),
-            android.R.layout.simple_list_item_1,
-            items
-        ) {
-            override fun getFilter(): Filter {
-                return object : Filter() {
-                    override fun performFiltering(constraint: CharSequence?): FilterResults {
-                        return FilterResults().apply {
-                            values = items
-                            count = items.size
-                        }
+    private fun alwaysFullAdapter(items: Array<String>) =
+        object : ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, items) {
+            override fun getFilter(): Filter = object : Filter() {
+                override fun performFiltering(constraint: CharSequence?): FilterResults =
+                    FilterResults().apply {
+                        values = items
+                        count = items.size
                     }
-                    override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                        notifyDataSetChanged()
-                    }
+
+                override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                    notifyDataSetChanged()
                 }
             }
         }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
