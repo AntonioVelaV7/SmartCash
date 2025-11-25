@@ -76,7 +76,6 @@ class DashboardFragment : Fragment() {
     private fun setupFilters() = with(binding) {
         val years = resources.getStringArray(R.array.filter_years)
         actYear.setAdapter(alwaysFullAdapter(years))
-        actYear.setText(years.firstOrNull() ?: "", false)
         actYear.setOnClickListener { actYear.showDropDown() }
         actYear.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) actYear.showDropDown()
@@ -84,7 +83,6 @@ class DashboardFragment : Fragment() {
 
         val months = resources.getStringArray(R.array.filter_months)
         actMonth.setAdapter(alwaysFullAdapter(months))
-        actMonth.setText(months.firstOrNull() ?: "", false)
         actMonth.setOnClickListener { actMonth.showDropDown() }
         actMonth.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) actMonth.showDropDown()

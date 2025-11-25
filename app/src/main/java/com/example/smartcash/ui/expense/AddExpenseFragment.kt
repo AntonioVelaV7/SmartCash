@@ -1,6 +1,8 @@
 package com.example.smartcash.ui.expense
 
 import android.app.DatePickerDialog
+import android.content.res.Configuration
+import android.view.ContextThemeWrapper
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +21,7 @@ import com.example.smartcash.viewmodel.FinanceViewModel
 import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
 import java.util.Calendar
+import java.util.Locale
 
 class AddExpenseFragment : Fragment() {
 
@@ -78,7 +81,7 @@ class AddExpenseFragment : Fragment() {
     private fun showDatePicker() {
         val calendar = Calendar.getInstance()
         DatePickerDialog(
-            requireContext(),
+            spanishContext(),
             { _, year, month, dayOfMonth ->
                 selectedDate = LocalDate.of(year, month + 1, dayOfMonth)
                 binding.etDate.setText(Formatters.formatDate(selectedDate!!))
@@ -87,6 +90,15 @@ class AddExpenseFragment : Fragment() {
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
+    }
+
+    private fun spanishContext(): ContextThemeWrapper {
+        val config = Configuration(resources.configuration).apply {
+            setLocale(Locale("es", "ES"))
+        }
+        return ContextThemeWrapper(requireContext(), R.style.Theme_SmartCash).apply {
+            applyOverrideConfiguration(config)
+        }
     }
 
     private fun saveExpense() = with(binding) {
